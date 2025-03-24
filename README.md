@@ -30,3 +30,20 @@ CONNECT ME is an innovative Android application designed to simplify access to *
    ```bash
    git clone https://github.com/yourusername/Connect-Me-Project.git
    cd Connect-Me-Project
+   
+**Setup the Backend (Django):**
+pip install -r requirements.txt
+python manage.py runserver
+
+Open Android Studio, load the frontend code, and run the app on an emulator or a physical device.
+
+**👥 Contributors**
+Najma Manaf
+Liyana
+Rihana
+Jesna
+
+A special thanks to our mentor Ms. Femila K V, faculty members, and everyone who supported us in this journey!
+
+**📜 License**
+This project is open-source and available under the MIT License.
