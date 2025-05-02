@@ -1,0 +1,53 @@
+<body style="font-family: Arial, sans-serif; 
+             background-image: url('static/assets/img/83-838296_web-designer-professional-website-background-images.jpg'); 
+             background-size: cover; 
+             background-position: center; 
+             background-repeat: no-repeat; 
+             margin: 0; 
+             padding: 0;">
+
+{%include 'worker_header.html'%}
+<br><br>
+<br><br>
+
+
+<br><br>
+
+<div class="container" style="max-width: 800px; margin: 0 auto; background: #fffaf0; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="text-align: center; font-family: 'Helvetica', sans-serif; color: #f57c00; margin-bottom: 20px;">Submit Your Complaint</h1>
+    
+    <form method="post" style="background:rgb(255, 255, 255); border: 1px solid #f57c00; padding: 20px; border-radius: 8px;">
+        <div style="margin-bottom: 15px;">
+            <label for="complaints" style="font-size: 16px; color: #333; font-weight: bold;">Type Your Complaint:</label>
+            <textarea id="complaints" name="comp" style="width: 100%; height: 120px; border: 1px solid #ddd; border-radius: 5px; padding: 10px; font-size: 14px;"></textarea>
+        </div>
+        <div style="text-align: center;">
+            <input type="submit" value="Submit" name="submit" style="background-color: #f57c00; color: white; font-size: 16px; font-weight: bold; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">
+        </div>
+    </form>
+
+    <h2 style="text-align: center; font-family: 'Helvetica', sans-serif; color: #f57c00; border-bottom: 2px solid #f57c00; padding-bottom: 5px; margin-top: 30px;">Complaint Details</h2>
+    
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-family: 'Helvetica', sans-serif;">
+        <thead>
+            <tr style="background-color: #f57c00; color: white; text-align: left;">
+                <th style="padding: 12px;">Date</th>
+                <th style="padding: 12px;">Complaint</th>
+                <th style="padding: 12px;">Reply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in data['view']%}
+            <tr style="background-color: #fffaf0; border: 1px solid #ddd;">
+                <td style="padding: 10px; color: #333;">{{i['date']}}</td>
+                <td style="padding: 10px; color: #333;">{{i['complaint']}}</td>
+                <td style="padding: 10px; color: #333;">{{i['reply']}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+<br><br>
+<br><br>
+
+{%include 'footer.html'%}

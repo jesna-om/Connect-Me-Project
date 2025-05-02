@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#F0F2F5"
+    android:padding="24dp"
+    tools:context=".IpSetting">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Header with Icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_network"
+                    android:tint="#3F51B5"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="Network Icon" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Your IP Address"
+                    android:textColor="#2D3748"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Configure your network connection"
+                    android:textColor="#64748B"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- IP Input Field -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IP ADDRESS"
+                    android:textColor="#3F51B5"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#F8F9FA">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_ip_address"
+                            android:tint="#64748B"
+                            android:layout_marginStart="16dp"
+                            android:contentDescription="IP Icon" />
+
+                        <EditText
+                            android:id="@+id/ettext"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:ems="10"
+                            android:hint="Enter IP address (e.g. 192.168.1.1)"
+                            android:textColorHint="#A0AEC0"
+                            android:textColor="#2D3748"
+                            android:textStyle="normal"
+                            android:inputType="text"
+                            android:background="@null"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Example format: 192.168.1.1"
+                    android:textColor="#64748B"
+                    android:textSize="12sp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- Submit Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="SUBMIT"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:background="@drawable/button_gradient"
+                app:cornerRadius="8dp"
+                android:elevation="2dp" />
+
+            <!-- Additional Info -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This will connect your device to the specified network"
+                android:textColor="#64748B"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

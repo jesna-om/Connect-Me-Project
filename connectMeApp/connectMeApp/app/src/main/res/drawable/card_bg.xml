@@ -1,0 +1,9 @@
+<!-- res/drawable/rounded_gradient_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#480ca8"
+        android:endColor="#3f37c9"
+        android:angle="45"
+        android:type="linear" />
+    <corners android:radius="16dp" />
+</shape>

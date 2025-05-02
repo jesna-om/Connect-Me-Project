@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5"
+    tools:context=".make_payment">
+
+    <!-- Amount Display -->
+    <TextView
+        android:id="@+id/amt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:textColor="#212121"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:text="Total Amount: $0.00" />
+
+    <!-- Payment Form Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Card Number -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Card Number (16 digits)"
+                app:boxStrokeColor="#4CAF50"
+                app:hintTextColor="#757575"
+                app:counterEnabled="true"
+                app:counterMaxLength="19"> <!-- Accounting for spaces -->
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="19"
+                    android:textColor="#212121" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Expiry and CVV -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Expiry (MM/YY)"
+                    app:boxStrokeColor="#4CAF50"
+                    app:hintTextColor="#757575"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/expiry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textColor="#212121" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:hint="CVV (3-4 digits)"
+                    app:boxStrokeColor="#4CAF50"
+                    app:hintTextColor="#757575"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="4">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/cvv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberPassword"
+                        android:maxLength="4"
+                        android:textColor="#212121" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- Cardholder Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Cardholder Name"
+                app:boxStrokeColor="#4CAF50"
+                app:hintTextColor="#757575">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cardholder_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName|textCapWords"
+                    android:maxLength="50"
+                    android:textColor="#212121" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Pay Button -->
+    <Button
+        android:id="@+id/paybtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Pay Now"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:elevation="4dp" />
+
+    <!-- Loading Overlay -->
+    <ProgressBar
+        android:id="@+id/loading_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:indeterminateTint="#4CAF50" />
+
+</LinearLayout>

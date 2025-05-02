@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/main_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/main_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ConnectMeApp"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".WorkerReview"
+            android:exported="false" />
+        <activity
+            android:name=".new_password"
+            android:exported="false" />
+        <activity
+            android:name=".forgotpassword"
+            android:exported="false" />
+        <activity
+            android:name=".edit_profile"
+            android:exported="false" />
+        <activity
+            android:name=".complaint"
+            android:exported="false" />
+        <activity
+            android:name=".order_history"
+            android:exported="false" />
+        <activity
+            android:name=".service_payment"
+            android:exported="false" />
+        <activity
+            android:name=".view_user_request"
+            android:exported="false" />
+        <activity
+            android:name=".service_request"
+            android:exported="false" />
+        <activity
+            android:name=".service_n_charges"
+            android:exported="false" />
+        <activity
+            android:name=".worker"
+            android:exported="false" />
+        <activity
+            android:name=".review_shop"
+            android:exported="false" />
+        <activity
+            android:name=".make_payment"
+            android:exported="false" />
+        <activity
+            android:name=".view_cart"
+            android:exported="false" />
+        <activity
+            android:name=".booking"
+            android:exported="false" />
+        <activity
+            android:name=".cart"
+            android:exported="false" />
+        <activity
+            android:name=".product"
+            android:exported="false" />
+        <activity
+            android:name=".shop"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".User_Home"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".register"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IpSetting"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".LocationService" />
+    </application>
+
+</manifest>

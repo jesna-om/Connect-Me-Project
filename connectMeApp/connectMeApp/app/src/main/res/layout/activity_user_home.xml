@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+
+        android:background="@drawable/gradient_background"
+        tools:context=".User_Home">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connect Me"
+
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/logoutCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                android:layout_marginEnd="4dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_logout"
+                        android:contentDescription="Logout"
+                        android:tint="#FF3B30"/>
+
+                    <Button
+                        android:id="@+id/btnLogout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:text="Logout"
+                        android:textSize="12sp"
+                        android:background="@android:color/transparent"
+                        android:textColor="#FF3B30"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="5"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
+
+            <!-- Profile Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_person"
+                        android:contentDescription="Profile Icon"
+                        android:tint="#4285F4"/>
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Profile"
+                        android:background="@android:color/transparent"
+                        android:textColor="#4285F4"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Shop Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_store"
+                        android:contentDescription="Shop Icon"
+                        android:tint="#0F9D58"/>
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shop"
+                        android:background="@android:color/transparent"
+                        android:textColor="#0F9D58"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Product Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_category"
+                        android:contentDescription="Product Icon"
+                        android:tint="#DB4437"/>
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Product"
+                        android:background="@android:color/transparent"
+                        android:textColor="#DB4437"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Cart Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_cart"
+                        android:contentDescription="Cart Icon"
+                        android:tint="#F4B400"/>
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cart"
+                        android:background="@android:color/transparent"
+                        android:textColor="#F4B400"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Workers Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_group"
+                        android:contentDescription="Workers Icon"
+                        android:tint="#673AB7"/>
+
+                    <Button
+                        android:id="@+id/button6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Workers"
+                        android:background="@android:color/transparent"
+                        android:textColor="#673AB7"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Your Requests Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_request"
+                        android:contentDescription="Requests Icon"
+                        android:tint="#009688"/>
+
+                    <Button
+                        android:id="@+id/b7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Your Requests"
+                        android:background="@android:color/transparent"
+                        android:textColor="#009688"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Order History Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_history"
+                        android:contentDescription="History Icon"
+                        android:tint="#FF5722"/>
+
+                    <Button
+                        android:id="@+id/b8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Order History"
+                        android:background="@android:color/transparent"
+                        android:textColor="#FF5722"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Complaints Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_feedback"
+                        android:contentDescription="Complaints Icon"
+                        android:tint="#E91E63"/>
+
+                    <Button
+                        android:id="@+id/b9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Complaints"
+                        android:background="@android:color/transparent"
+                        android:textColor="#E91E63"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

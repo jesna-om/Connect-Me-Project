@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container {
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 50px;
+      margin-top: -10%;
+      color: #ff6600;
+      font-size: 3rem;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Two columns */
+      gap: 20px;
+      justify-items: center;
+      align-items: start;
+    }
+
+    .card {
+      text-align: left;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      float: left;
+      margin-right: 20px;
+      width: 150px;
+    }
+
+    .card strong {
+      color: #ff6600;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>How can we help you today?</h1>
+    <div class="grid-container">
+      <!-- Sales -->
+      <div class="card">
+        <img src="http://resources.bigrock.in/temp/contactus/ico-contact-sales.gif" alt="Sales Icon">
+        <div>
+          <p><strong>SALES</strong></p>
+          <p>
+            <a href="mailto:sales@example.com">sales@example.com</a><br>
+            Call us: +91-91-7076-3758<br>
+            (8 AM to 8 PM IST, Monday to Saturday)
+          </p>
+        </div>
+      </div>
+      <!-- Support -->
+      <div class="card">
+        <img src="http://resources.bigrock.in/temp/contactus/ico-contact-support.gif" alt="Support Icon">
+        <div>
+          <p><strong>SUPPORT</strong></p>
+          <p>
+            <a href="mailto:support@example.com">support@example.com</a><br>
+            Call us: +91-91-7076-3758<br>
+            (8 AM to 8 PM IST, Monday to Saturday)
+          </p>
+        </div>
+      </div>
+      <!-- Billing -->
+      <div class="card">
+        <img src="http://resources.bigrock.in/temp/contactus/ico-contact-billing.gif" alt="Billing Icon">
+        <div>
+          <p><strong>BILLING</strong></p>
+          <p>
+            <a href="mailto:billing@example.com">billing@example.com</a><br>
+            Call us: +91-91-7076-3758<br>
+            (8 AM to 8 PM IST, Monday to Saturday)
+          </p>
+        </div>
+      </div>
+      <!-- Complaints -->
+      <div class="card">
+        <img src="http://resources.bigrock.in/temp/contactus/ico-contact-complaint.gif" alt="Complaints Icon">
+        <div>
+          <p><strong>COMPLAINTS</strong></p>
+          <p>
+            <a href="#">Submit Complaint for Abuse Activity</a><br>
+            <a href="#">Submit Complaint for False Whois</a><br>
+            <a href="#">Report Spam</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

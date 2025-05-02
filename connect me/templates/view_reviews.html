@@ -1,0 +1,76 @@
+{% include 'shop_header.html' %}
+<br><br><br><br>
+
+<div style="padding: 50px 20px; background-color: #f8f8f8; min-height: 100vh;">
+    <h1 style="text-align: center; color: #ff6600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 30px;">Reviews</h1>
+
+    <div style="max-width: 1200px; margin: 0 auto; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); overflow-x: auto; padding: 20px;">
+        <table class="table table-striped table-hover" style="border: 1px solid #ff6600;">
+            <thead class="table-orange">
+                <tr>
+                    <th style="padding: 12px; text-align: left; background-color:rgb(247, 135, 60); color: #fff;">Review</th>
+                    <th style="padding: 12px; text-align: left; background-color:rgb(247, 135, 60); color: #fff;">Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data['view'] %}
+                <tr style="border-bottom: 1px solidrgb(189, 119, 72);">
+                    <td style="padding: 12px; color: #ff6600;">{{ i['review'] }}</td>
+                    <td style="padding: 12px; color: #ff6600;">{{ i['rating'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color:rgb(255, 255, 255);
+        margin: 0;
+    }
+    
+    
+
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+    }
+
+    .table th,
+    .table td {
+        padding: 1rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table-orange thead th {
+        background-color:rgb(230, 141, 82);
+        color: #fff;
+        border-bottom: 2px solidrgba(255, 102, 0, 0.53);
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(255, 102, 0, 0.1);
+    }
+
+    table tbody tr:hover {
+        background-color: rgba(255, 102, 0, 0.1);
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        font-weight: bold;
+    }
+</style>
+
+{% include 'footer.html' %}

@@ -1,0 +1,53 @@
+{% include 'shop_header.html' %}
+<br><br><br><br>
+
+<div style="padding: 50px 20px; background-color: #f4f4f9; min-height: 100vh;">
+    <h1 style="text-align: center; color: #ff6600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 30px;">Payment Details</h1>
+
+    <div style="max-width: 1200px; margin: 0 auto; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); overflow-x: auto; padding: 20px;">
+        <table style="width: 100%; border-collapse: collapse; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <thead style="background-color: #ff6600; color: #fff;">
+                <tr>
+                    <th style="padding: 12px; text-align: left;">Amount</th>
+                    <th style="padding: 12px; text-align: left;">Date & Time</th>
+                    <th style="padding: 12px; text-align: left;">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data['view'] %}
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="padding: 12px;">{{ i['amount'] }}</td>
+                    <td style="padding: 12px;">{{ i['date_time'] }}</td>
+                    <td style="padding: 12px;">
+                        {{ i['status'] }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+    }
+
+    table thead th {
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    table tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+{% include 'footer.html' %}

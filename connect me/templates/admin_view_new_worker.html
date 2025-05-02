@@ -1,0 +1,109 @@
+{% include 'admin_header.html' %}
+<br><br><br><br><br>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9; /* Fallback color if the image doesn't load */
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('static/assets/img/83-838296_web-designer-professional-website-background-images.jpg'); /* Replace with your image path */
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: 0.8; /* Adjust the opacity for better readability */
+        z-index: -1; /* Ensures the image stays behind the content */
+    }
+
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+        gap: 20px; /* Space between the cards */
+        justify-content: center; /* Centers the grid horizontally */
+        align-items: center;
+        margin: 0 auto; /* Centers the container itself */
+        max-width: fit-content;
+        padding: 20px;
+    }
+
+    .card {
+        border: 2px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px; /* Fixed width */
+        height: auto; /* Dynamic height to fit content */
+        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column; /* Keeps content aligned vertically */
+        justify-content: space-between; /* Distributes content evenly */
+    }
+
+    .card h2 {
+        margin-top: 0;
+    }
+
+    .card p {
+        margin: 10px 0;
+    }
+
+    .card a {
+        display: inline-block;
+        margin: 5px;
+        padding: 10px;
+        background-color: rgb(251, 156, 24);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .card a:hover {
+        background-color: rgba(241, 77, 17, 0.64);
+    }
+
+    .verified {
+        color: green;
+        font-weight: bold;
+    }
+
+    .rejected {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<div class="cards-container">
+    {% for i in data['view'] %}
+    <div class="card">
+        <h2>{{ i['first_name'] }} {{ i['last_name'] }}</h2>
+        <p><strong>Place:</strong> {{ i['place'] }}</p>
+        <p><strong>Phone:</strong> {{ i['phone'] }}</p>
+        <p><strong>Email:</strong> {{ i['email'] }}</p>
+        <p><strong>Work:</strong> {{ i['work'] }}</p>
+        <p><strong>Latitude:</strong> {{ i['latitude'] }}</p>
+        <p><strong>Longitude:</strong> {{ i['longitude'] }}</p>
+        {% if i['user_type'] == 'pending' %}
+        <a href="?action=verify&log_id={{ i['login_id'] }}">Verify</a>
+        <a href="?action=reject&log_id={{ i['login_id'] }}">Reject</a>
+        {% elif i['user_type'] == 'worker' %}
+        <span class="verified">Verified</span>
+        <a href="?action=reject&log_id={{ i['login_id'] }}">Reject</a>
+        {% elif i['user_type'] == 'reject' %}
+        <a href="?action=verify&log_id={{ i['login_id'] }}">Verify</a>
+        <span class="rejected">Rejected</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'footer.html' %}

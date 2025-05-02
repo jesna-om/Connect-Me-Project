@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+
+    android:padding="16dp"
+    android:background="@drawable/gradient_background"
+    tools:context=".complaint">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Complaints"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#3F51B5"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <EditText
+                    android:id="@+id/mt"
+                    android:layout_width="match_parent"
+                    android:layout_height="185dp"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Enter your complaints"
+                    android:inputType="textMultiLine"
+                    android:background="@drawable/edit_text_background" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit Complaint"
+                android:textAllCaps="false"
+                android:padding="12dp"
+                android:backgroundTint="#3F51B5" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="403dp"
+        android:layout_height="325dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="405dp" />
+
+
+
+</LinearLayout>
+
+

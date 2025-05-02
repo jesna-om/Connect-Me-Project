@@ -1,0 +1,114 @@
+{% include 'admin_header.html' %}
+<br><br><br><br><br>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('static/assets/img/admin home2.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed during scrolling */
+    background-color: #fff6e5; /* Fallback color if the image doesn't load */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #container {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    color:rgb(250, 241, 241); /* Vibrant orange */
+    font-size: 2.5rem;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .card {
+    
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color:rgba(229, 213, 193, 0.73); /* White background */
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card a {
+    text-decoration: none;
+    color:rgb(231, 15, 15);
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    
+  }
+
+  .card a:hover {
+    text-decoration: underline;
+  }
+  header {
+    background-color: #d77a61; /* Same color as the footer */
+    color: white; /* Set text color to white for contrast */
+    text-align: center; /* Align text to the center */
+    padding: 10px 0; /* Add padding for spacing */
+}
+
+  footer {
+    background-color: #d77a61;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Pushes footer to bottom */
+  }
+</style>
+</head>
+<body>
+  <div id="container">
+    <h1>Welcome Admin!</h1>
+    <div class="grid-container">
+      <!-- View New Shops -->
+      <div class="card">
+        <p><strong>View New Shops</strong></p>
+        <p>View and manage new shop registrations.</p>
+        <a href="/admin_view_new_shops">Manage Shops</a>
+      </div>
+      <!-- View New Workers -->
+      <div class="card">
+        <p><strong>View New Workers</strong></p>
+        <p>Review and verify worker applications.</p>
+        <a href="/admin_view_new_worker">Manage Workers</a>
+      </div>
+      <!-- View Complaints -->
+      <div class="card">
+        <p><strong>View Complaints</strong></p>
+        <p>Check and address customer complaints.</p>
+        <a href="/view_complaints">View Complaints</a>
+      </div>
+      
+    </div>
+  </div>
+  <br><br><br><br><br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,76 @@
+{%include 'worker_header.html'%}
+<br><br><br><br><br>
+<div class="container" style="max-width: 1100px; margin: 20px auto; background: #fffaf0; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+    <h2 style="font-family: 'Arial', sans-serif; color: #f57c00; text-align: center; margin-bottom: 20px;">User Request</h2>
+
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-family: 'Arial', sans-serif; text-align: left; border: 1px solid #ddd;">
+            <thead>
+                <tr style="background-color: #f57c00; color: white;">
+                    <th style="padding: 12px;">Request ID</th>
+                    <th style="padding: 12px;">Service ID</th>
+                    <th style="padding: 12px;">User ID</th>
+                    <th style="padding: 12px;">Title</th>
+                    <th style="padding: 12px;">Amount</th>
+                    <th style="padding: 12px;">Status</th>
+                    <th style="padding: 12px;">Date</th>
+                    <th style="padding: 12px; text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for i in data['view']%}
+                <tr style="background-color: #fffaf0; border-bottom: 1px solid #ddd;">
+                    <td style="padding: 10px;">{{i['request_id']}}</td>
+                    <td style="padding: 10px;">{{i['service_id']}}</td>
+                    <td style="padding: 10px;">{{i['user_id']}}</td>
+                    <td style="padding: 10px;">{{i['title']}}</td>
+                    <td style="padding: 10px;">{{i['amount']}}</td>
+                    <td style="padding: 10px;">{{i['status']}}</td>
+                    <td style="padding: 10px;">{{i['date']}}</td>
+                    <td style="padding: 10px; text-align: center;">
+                        <a href="?action=accept&id={{i['request_id']}}" style="padding: 6px 12px; background-color: #4caf50; color: white; text-decoration: none; border-radius: 4px; margin-right: 5px;">Accept</a>
+                        <a href="?action=reject&id={{i['request_id']}}" style="padding: 6px 12px; background-color: #f44336; color: white; text-decoration: none; border-radius: 4px;">Reject</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+
+    <h2 style="font-family: 'Arial', sans-serif; color: #f57c00; text-align: center; margin-top: 40px; border-bottom: 2px solid #f57c00; padding-bottom: 5px;">Accepted Requests</h2>
+
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-family: 'Arial', sans-serif; text-align: left; border: 1px solid #ddd;">
+            <thead>
+                <tr style="background-color: #f57c00; color: white;">
+                    <th style="padding: 12px;">Request ID</th>
+                    <th style="padding: 12px;">Service ID</th>
+                    <th style="padding: 12px;">User ID</th>
+                    <th style="padding: 12px;">Title</th>
+                    <th style="padding: 12px;">Amount</th>
+                    <th style="padding: 12px;">Status</th>
+                    <th style="padding: 12px;">Date</th>
+                    <th style="padding: 12px; text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for j in data1['accepted']%}
+                <tr style="background-color: #fffaf0; border-bottom: 1px solid #ddd;">
+                    <td style="padding: 10px;">{{j['request_id']}}</td>
+                    <td style="padding: 10px;">{{j['service_id']}}</td>
+                    <td style="padding: 10px;">{{j['user_id']}}</td>
+                    <td style="padding: 10px;">{{j['title']}}</td>
+                    <td style="padding: 10px;">{{j['amount']}}</td>
+                    <td style="padding: 10px;">{{j['status']}}</td>
+                    <td style="padding: 10px;">{{j['date']}}</td>
+                    <td style="padding: 10px; text-align: center;">
+                        <a href="?action=finish&id={{j['request_id']}}" style="padding: 6px 12px; background-color:rgba(243, 117, 33, 0.73); color: white; text-decoration: none; border-radius: 4px;">finish</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br><br>
+{%include 'footer.html'%}

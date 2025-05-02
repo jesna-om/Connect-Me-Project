@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Worker Registration</title>
+    <style>
+        #dvMap {
+            width: 600px;
+            height: 400px;
+            margin: 20px auto;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Worker Registration Form</h1>
+    <form method="post" action="/worker_register">
+        <table>
+            <tr>
+                <th>First Name:</th>
+                <td><input type="text" name="first_name" required></td>
+            </tr>
+            <tr>
+                <th>Last Name:</th>
+                <td><input type="text" name="last_name" required></td>
+            </tr>
+            <tr>
+                <th>Place:</th>
+                <td><input type="text" name="place" required></td>
+            </tr>
+            <tr>
+                <th>Phone:</th>
+                <td><input type="text" name="phone" required></td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td><input type="text" name="email" required></td>
+            </tr>
+            <tr>
+                <th>Work:</th>
+                <td><input type="text" name="work" required></td>
+            </tr>
+            <tr>
+                <th>Latitude:</th>
+                <td><input type="text" name="latitude" id="slati" readonly required></td>
+            </tr>
+            <tr>
+                <th>Longitude:</th>
+                <td><input type="text" name="longitude" id="elongi" readonly required></td>
+            </tr>
+            <tr>
+                <th>Username:</th>
+                <td><input type="text" name="username" required></td>
+            </tr>
+            <tr>
+                <th>Password:</th>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Register" name="register">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="dvMap"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3MPnSnyWwNmpnVEFkaddVvy_GWtxSejs&sensor=false"></script>
+    <script>
+        let map;
+
+        function initMap() {
+            const mapOptions = {
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+
+            // Try to locate user's current position
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const userLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        map.setCenter(userLocation);
+
+                        // Add a marker at the user's location
+                        const marker = new google.maps.Marker({
+                            position: userLocation,
+                            map: map,
+                            title: "You are here!"
+                        });
+
+                        // Populate latitude and longitude fields
+                        document.getElementById('slati').value = userLocation.lat;
+                        document.getElementById('elongi').value = userLocation.lng;
+                    },
+                    error => {
+                        alert("Unable to fetch location. Please enable location services.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+
+            // Allow user to manually select a point on the map
+            google.maps.event.addListener(map, 'click', function (e) {
+                alert("Latitude: " + e.latLng.lat() + "\nLongitude: " + e.latLng.lng());
+                document.getElementById('slati').value = e.latLng.lat();
+                document.getElementById('elongi').value = e.latLng.lng();
+            });
+        }
+
+        // Load the map
+        window.onload = initMap;
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+{% include 'shop_header.html' %}
+
+
+{% if data['up'] %}
+
+<form action="" method="post" >
+    <table class="styled-table">
+        <tr>
+            <th>Product Name</th>
+            <td><input type="text" name="product name" value="{{data['up'][0]['product_name']}}" class="form-input"></td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td><input type="text" name="price" value="{{data['up'][0]['price']}}" class="form-input"></td>
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <td><input type="text" name="quantity" value="{{data['up'][0]['quantity']}}" class="form-input"></td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td><input type="text" name="image" value="{{data['up'][0]['image']}}" class="form-input"></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><input type="text" name="description" value="{{data['up'][0]['description']}}" class="form-input"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Update" name="update" class="btn"></td>
+        </tr>
+    </table>
+</form>
+
+{% else %}
+
+<br><br><br><br><br><br>
+<center>
+    <h2>Add Products</h2>
+    <form method="post" enctype="multipart/form-data">
+        <table class="styled-table colorful-table compact-table">
+            <tr>
+                <th style="font-size: 20px; border-bottom: 1px solid white;">Product Name</th>
+                <td><input type="text" name="product name" class="form-input" style="margin-top: 15px;"></td>
+            </tr>
+            <tr>
+                <th style="font-size: 20px; border-bottom: 1px solid white;">Price</th>
+                <td><input type="text" name="price" class="form-input" style="margin-top: 15px;"></td>
+            </tr>
+            <tr>
+                <th style="font-size: 20px; border-bottom: 1px solid white;">Quantity</th>
+                <td><input type="text" name="quantity" class="form-input" style="margin-top: 15px;"></td>
+            </tr>
+            <tr>
+                <th style="font-size: 20px; border-bottom: 1px solid white;">Image</th>
+                <td><input type="file" name="image" class="form-input" style="margin-top: 15px;"></td>
+            </tr>
+            <tr>
+                <th style="font-size: 20px; border-bottom: 1px solid white;">Description</th>
+                <td><input type="text" name="description" class="form-input" style="margin-top: 15px;"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit" name="submit" class="btn"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+
+<br><br><br>
+<center>
+    <h2>Current Products</h2>
+    <table border="2" class="styled-table table table-info">
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for i in data['view'] %}
+        <tr>
+            <td>{{ i['product_name'] }}</td>
+            <td>{{ i['price'] }}</td>
+            <td>{{ i['quantity'] }}</td>
+           
+            <td><img src="{{ i['image'] }}" alt="{{ i['image'] }}" width="200px"></td>
+            <td>{{ i['description'] }}</td>
+            <td><a href="?action=update&product_id={{ i['product_id'] }}" class="btn btn-success">Update</a></td>
+            <td><a href="?action=delete&product_id={{ i['product_id'] }}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+{% endif %}
+
+<style>
+    body {
+        /* Background image for white theme with orange accents */
+        background: url('static/assets/img/beigebg1.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom; /* Focus on the lower part of the image */
+        color: #333;
+        font-family: Arial, sans-serif;
+    }
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('static/assets/img/shopping-07 bg.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: 0.75; /* Adjust this value to change the opacity */
+        z-index: -1; /* Ensure the image stays behind the content */
+    }
+
+    .styled-table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for readability */
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: orange;
+        color: white;
+        border: none;
+        border-bottom: 1px solid white; /* Add white line between header rows */
+    }
+
+    td {
+        border: 1px solid #ccc;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(249, 249, 249, 0.9); /* Slight transparency */
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        background-color: orange;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: darkorange;
+    }
+
+    h2 {
+        color: #ed5706;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .colorful-table th {
+        background-color: orange;
+        color: white;
+        border: none;
+        border-bottom: 1px solid white; /* Add white line between header rows */
+    }
+
+    .colorful-table td {
+        border: 1px solid #FF8C00;
+    }
+
+    .compact-table {
+        width: 60%; /* Reduce the width for a more compact size */
+    }
+
+    /* Add a gradient to the headers */
+    th {
+        background: linear-gradient(90deg, rgba(255,140,0,1) 0%, rgba(255,165,0,1) 100%);
+    }
+
+    .btn-success, .btn-danger {
+        padding: 5px 10px;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+</style>
+
+{% include 'footer.html' %}
+

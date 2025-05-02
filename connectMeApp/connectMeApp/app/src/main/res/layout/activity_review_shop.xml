@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA"
+    tools:context=".review_shop">
+
+    <!-- Header Section -->
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="339dp"
+        android:layout_height="54dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="YOUR RATING"
+        android:textColor="#1E3A8A"
+        android:textSize="44dp"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <!-- Main Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/t1"
+        app:layout_constraintVertical_bias="0.07">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Rating Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Your Rating"
+                android:textColor="#505050"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="12dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Keeping the original RatingBar with its ID -->
+                <RatingBar
+                    android:id="@+id/r1"
+                    android:layout_width="247dp"
+                    android:layout_height="72dp"
+                    android:progressTint="#FFD700"
+                    android:secondaryProgressTint="#FFECB3"
+                    android:backgroundTint="#E0E0E0" />
+            </FrameLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Review Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Write Your Review"
+                android:textColor="#505050"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="12dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Keeping the original EditText with its ID -->
+                <EditText
+                    android:id="@+id/e1"
+                    android:layout_width="match_parent"
+                    android:layout_height="185dp"
+                    android:ems="10"
+                    android:padding="16dp"
+                    android:gravity="top|start"
+                    android:hint="Enter your review"
+                    android:inputType="textMultiLine"
+                    android:background="@drawable/edit_text_background" />
+            </FrameLayout>
+
+            <!-- Submit Button Section -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp">
+
+                <!-- Keeping the original Button with its ID -->
+                <Button
+                    android:id="@+id/b1"
+                    android:layout_width="144dp"
+                    android:layout_height="60dp"
+                    android:text="SUBMIT"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/button_background" />
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
